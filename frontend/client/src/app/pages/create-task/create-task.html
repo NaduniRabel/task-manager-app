@@ -1,0 +1,56 @@
+<!--Create task reactive form-->
+<div class="container mt-4">
+  <h3 class="mb-3">Create Task</h3>
+
+  <form [formGroup]="taskForm" (ngSubmit)="submitForm()">
+    <!-- Title -->
+    <div class="mb-3">
+      <label class="form-label" for="title"> Title <span class="text-danger">*</span></label>
+      <input type="text"  class="form-control" id ="title" formControlName="title" placeholder="Enter task title">
+      <!--Validations - required and max length-->
+      <div class="text-danger small">
+      @if(taskForm.controls['title'].touched || taskForm.controls['title'].dirty)
+      {
+        @if(taskForm.controls['title'].errors?.['required'])
+        {
+            <span>Required</span>
+        }
+        @if(taskForm.controls['title'].errors?.['maxlength'])
+        {
+            <span>Maximum 50 characters</span>
+        }
+      }
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <textarea  class="form-control" id="description" formControlName="description" rows="3" placeholder="Enter task description"></textarea>
+      <!--Validations - max length-->
+      <div class="text-danger small">
+      @if(taskForm.controls['description'].touched || taskForm.controls['description'].dirty)
+      {
+        @if(taskForm.controls['description'].errors?.['maxlength'])
+        {
+            <span>Maximum 300 characters</span>
+        }
+      }
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label" for="status">Status</label>
+      <select class="form-select" id ="status" formControlName="status">
+        <option value="">Select status</option>
+        <option value="TO_DO">TO_DO</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-dark">Create Task</button>
+  </form>
+</div>

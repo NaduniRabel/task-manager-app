@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Edit Task</h3>
+
+  <form [formGroup]="taskForm" (ngSubmit)="submitForm()">
+    <!--ID-->
+    <div class="mb-3">
+         <label class="form-label" for="id"> Task ID </label>
+      <input type="text"  class="form-control" id ="id" formControlName="id">
+    </div>
+    <!-- Title -->
+    <div class="mb-3">
+      <label class="form-label" for="title"> Title <span class="text-danger">*</span></label>
+      <input type="text"  class="form-control" id ="title" formControlName="title" placeholder="Enter task title">
+      <div class="text-danger small">
+      <!--Validations for required and max length-->
+      @if(taskForm.controls['title'].touched || taskForm.controls['title'].dirty)
+      {
+        @if(taskForm.controls['title'].errors?.['required'])
+        {
+            <span>Required</span>
+        }
+        @if(taskForm.controls['title'].errors?.['maxlength'])
+        {
+            <span>Maximum 50 characters</span>
+        }
+      }
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <textarea  class="form-control" id="description" formControlName="description" rows="3" placeholder="Enter task description"></textarea>
+        <div class="text-danger small">
+        <!--Validation for max length-->
+        @if(taskForm.controls['description'].touched || taskForm.controls['description'].dirty)
+        {
+          @if(taskForm.controls['description'].errors?.['maxlength'])
+          {
+              <span>Maximum 300 characters</span>
+          }
+        }
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label" for="status">Status</label>
+      <select class="form-select" id ="status" formControlName="status">
+        <option value="">Select status</option>
+        <option value="TO_DO">TO_DO</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-dark">Edit Task</button>
+  </form>
+</div>
