@@ -1,4 +1,5 @@
 <h1>Task Manager App</h1>
+<h3>Angular - SpringBoot - MySQL</h3>
 
 <h2>Before run:</h2>
 Install Docker & Docker compose
