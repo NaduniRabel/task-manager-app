@@ -6,6 +6,10 @@ Install Docker & Docker compose
 <h2>Steps to run:</h2>
 
 1. Clone the repository and navigate to Task-Manager
+   ```bash
+   git clone https://github.com/NaduniRabel/task-manager-app.git
+   cd Task-Manager
+   ```
 
 2. Build and start all services
    ```bash
