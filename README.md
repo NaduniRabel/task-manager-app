@@ -11,6 +11,18 @@ Install Docker & Docker compose
    git clone https://github.com/NaduniRabel/task-manager-app.git
    cd Task-Manager
    ```
+2. Create a .env file and include the variables
+   ```bash
+   # Spring Boot
+   SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/dbname
+   SPRING_DATASOURCE_USERNAME=user
+   SPRING_DATASOURCE_PASSWORD=password
+   SPRING_JPA_HIBERNATE_DDL_AUTO=update
+   
+   # MySQL
+   MYSQL_ROOT_PASSWORD=password
+   MYSQL_DATABASE=dbname
+   ```
 
 2. Build and start all services
    ```bash
