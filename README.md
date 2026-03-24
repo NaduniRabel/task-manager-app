@@ -34,7 +34,7 @@ Install Docker & Docker compose
   - frontend - http://localhost:4200
   - backend - http://localhost:8080
 
-4. Stop the application
+5. Stop the application
    ```bash
    docker compose down
    ```
